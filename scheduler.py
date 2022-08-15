@@ -86,11 +86,14 @@ def main():
         justify=CENTER
     )
 
+    cal.pack(pady = 20)
     min_sb.pack(side=LEFT, fill=X, expand=True)
     hour_sb.pack(side=LEFT, fill=X, expand=True)
     sec_sb.pack(side=LEFT, fill=X, expand=True)
     sec.pack(side=LEFT, fill=X, expand=True)
 
+    fone.pack()
+    ftwo.pack()
 
     window.mainloop()
 
@@ -106,7 +109,7 @@ def schedule_event(given_time):
 
 
 def ftp_job():
-    #here we are going to need to come to an agreement as to where these files are going to be stored
+    # here we are going to need to come to an agreement as to where these files are going to be stored
     print("This is a placeholder")
 
 
