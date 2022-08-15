@@ -14,6 +14,10 @@ from tkcalendar import Calendar
 from apscheduler.schedulers.background import BackgroundScheduler 
 from datetime import datetime as dt
 
+# Modules imported for ftp connection
+
+import ftplib as ftp
+
 #sets the window's properties
 
 window = Tk()
@@ -109,8 +113,21 @@ def schedule_event(given_time):
 
 
 def ftp_job():
-    # here we are going to need to come to an agreement as to where these files are going to be stored
-    print("This is a placeholder")
+    # get the current date-time
+
+    current_date = dt.now()
+
+
+
+
+    # logging in using anonymous creds
+
+    ftp_conn = ftp.FTP('ip_address')
+    ftp_conn.login()
+
+
+
+
 
 
 if __name__ == '__main__':
