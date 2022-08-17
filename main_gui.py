@@ -1,42 +1,35 @@
-# This script downloads the files on a scheduled basis 
+# This is the python script that will look after the main GUI, alongside the validation of CSV files as they are downloaded
 # Author: Thomas H2
-# References are in line the script file
 
 
-#Modules imported for GUI 
-
-from time import time
 from tkinter import *
 from tkinter import ttk
 from tkcalendar import Calendar
-
-#Modules imported for scheduling tasks
-
-from apscheduler.schedulers.background import BackgroundScheduler 
 from datetime import datetime as dt
 
-# Modules imported for ftp connection
-
-import ftplib as ftp
-
-#sets the window's properties
+# this rolls the main window over the screen
 
 window = Tk()
 
 def main():
+    # sets the main settings for the window
 
-    # strings for spinbox
+    window.geometry('600x400')
+    window.resizable(False, False)
+    window.title("Medical FTP Server")
+
+     
+    # Create Label and add some text
+
+    Lower_left = ttk.Label(window,text ='This application comes with two modes, 1. Which allows you to download the CSVs for any given day and \n 2. Which allows you to schedule the downloading of data.')
+    Lower_left.place(relx= 0.0, rely=0.0, anchor='nw')
+
+    # sets calendar and time gui
 
     hour_string = StringVar()
     min_string = StringVar()
     last_value_sec = ''
     last_value = ''
-
-    # window geometry
-
-    window.geometry('600x400')
-    window.resizable(False, False)
-    window.title("Scheduler")
 
     fone = Frame(window)
     ftwo = Frame(window)
@@ -100,39 +93,12 @@ def main():
     sec_sb.pack(side=LEFT, fill=X, expand=True)
     sec.pack(side=LEFT, fill=X, expand=True)
 
-    fone.pack()
-    ftwo.pack()
+    fone.pack(padx=40, pady=40)
+    ftwo.pack(padx=20, pady=20)
+
+
 
     window.mainloop()
-
-#function will start the scheduling at a given date
-
-def schedule_event(given_time):
-    present = dt.now()
-    if given_time <= present:
-        scheduler = BackgroundScheduler()
-        scheduler.add_job(ftp_job, args=[given_time], trigger='cron', day_of_week=given_time.weekday())
-        return True
-    else:
-        return False
-
-
-def ftp_job():
-    # get the current date-time
-
-    current_date = dt.now()
-
-
-    # logging in using anonymous creds
-
-    ftp_conn = ftp.FTP('ip_address')
-
-    ftp_conn.login()
-    
-    ftp.dir()
-
-    return True
-
 
 if __name__ == '__main__':
     main()
