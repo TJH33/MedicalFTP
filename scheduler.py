@@ -19,6 +19,7 @@ def schedule_event(given_time, is_e_day):
     # determines if there is already another job
 
     # starts the jobs
+    
     present = dt.now()
     if given_time <= present and is_e_day:
         scheduler.add_job(ftp_job, trigger='cron', hour='0', day_of_week='*', id='ftp_job')
@@ -28,6 +29,9 @@ def schedule_event(given_time, is_e_day):
 
 
 def ftp_job():
+    # files variable, which will get the csv
+    files = None
+
     # get the current date-time
 
     current_date = dt.now()
