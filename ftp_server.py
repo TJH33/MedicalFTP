@@ -1,5 +1,5 @@
 from pyftpdlib.authorizers import DummyAuthorizer
-from pyftpdlib.handers import FTPHandlers
+from pyftpdlib.handlers import FTPHandler
 from pyftpdlib.servers import FTPServer
 
 #The port the FTP server will listen on
@@ -44,5 +44,5 @@ def main():
         server.serve_forever()
 
 
-if __name__ = '__main__':
+if __name__ == '__main__':
         main()
