@@ -107,11 +107,15 @@ def download_data(given_date):
     #performing the validation tests on the files
 
     for filename in filename_rel:
-        if cv.validate_csv(os.path.join(pwd, 'Temp', filename) == []):
+        # print filepath
+
+        path = os.path.join(pwd, 'Temp', filename)
+        if (cv.validate_csv(path) == []):
             filename_valid.append(filename)
+            
+
     
     # moving to valid
-
     dl.move_to_valid(filename_valid)
 
 
