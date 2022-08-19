@@ -15,7 +15,13 @@ def move_to_temp(file_list):
         os.mkdir(joined_temp)
     
     for file_name in file_list:
-        shutil.move(os.path.join(pwd, file_name), joined_temp)
+        try:
+            shutil.move(os.path.join(pwd, file_name), joined_temp)
+        except:
+            return False
+    
+    return True
+
 
 def move_to_valid(file_list):
     # checking if the pre-requsite file directories exist
@@ -34,4 +40,9 @@ def move_to_valid(file_list):
             os.mkdir(join_month)
             
         full_file_path = os.path.join(joined_valid, file_name[9:13], file_name[13:15])
-        shutil.move(os.path.join(joined_temp, file_name), full_file_path)
+        try:
+            shutil.move(os.path.join(joined_temp, file_name), full_file_path)
+        except:
+            return False
+    
+    return True
