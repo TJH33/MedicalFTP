@@ -4,3 +4,5 @@ This project simulates a scenario where data, in a CSV format, is stored on an p
 * A UI application which can retrieve the CSV files from a given point in time.
 
 Alongside this, the CSV files have to meet given requirements in order to be considered valid.
+
+Due to Git configuration issues, the blank username commits are **Thomas H2**
