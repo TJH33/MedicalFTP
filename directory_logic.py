@@ -23,13 +23,15 @@ def move_to_valid(file_list):
     if (os.path.exists(joined_valid) is False):
         os.mkdir(joined_valid)
     
+    #going through and grabbing the month year, appending the directories
+    
     for file_name in file_list:
-        join_year = os.path.join(joined_valid, file_name[10:13])
-        join_month = os.path.join(joined_valid, file_name[14:15])
+        join_year = os.path.join(joined_valid, file_name[9:13])
+        join_month = os.path.join(join_year, file_name[13:15])
         if (os.path.exists(join_year) is False):
             os.mkdir(join_year)
         if (os.path.exists(join_month) is False):
             os.mkdir(join_month)
             
-        full_file_path = os.path.join(joined_valid, file_name[10:13], file_name[14:15])
+        full_file_path = os.path.join(joined_valid, file_name[9:13], file_name[13:15])
         shutil.move(os.path.join(joined_temp, file_name), full_file_path)
