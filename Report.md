@@ -23,7 +23,9 @@ To begin our project, our met and worked on creating a plan for doing the projec
 
 In our first group meeting, we discussed our strengths with regards to programming and came to the conclusion that our FTP server would be written in Python as this is a language we are all familiar and comfortable with. In this meeting, we agreed on who would complete what tasks in the project breakdown, ensuring no one was given too much work and no one given too little.
 
-In this meeting we also agreed on a schuedule for our team to meet once a week to discuss the progress we had made and if we needed assistance on our tasks that we had agreed to do previously. 
+In this meeting we also agreed on a schuedule for our team to meet once a week to discuss the progress we had made and if we needed assistance on our tasks that we had agreed to do previously.
+
+To keep track of task assignments, we used a task assignment tool called Jira - this allowed to keep track of how was assigned to what task, and it also gave the task assignee chance to post progress updates.
 
 # <u>Project Execution </u>
 <u>FTP Server</u>
@@ -39,12 +41,15 @@ The csv_validator file was written by Oscar. It starts by opening the csv file a
 <u>Scheduler</u>
 
 The Scheduler was created by Thomas H2. The purpose of the scheduler is to allow to admin of the FTP server to download files on a set schedule. To begin modules are imported from apscheduler and datetime to allow for scheduling of tasks and then ftplib is imported to allow FTP connection.
+The scheduler uses cronjob syntax, in order to format the interval at which the job will be ran, the user can select in the gui using the calendar widget which date they would like to start scheduling at.
 
 The function then begins with scheduling an event at a chosen date and time to begin the job. If there is already another job running then the program wont run again. The job then begins downloads the file from the FTP server using an annoymous login.
 
 <u>Main GUI</u>
 
-The Main GUI was created by Thomas H2. The overall aim of the GUI is to make using the FTP server possible for people who may have never used a CLI in their life. The GUI code begins with multiple imports from tkinter, scheduler, datetime and ftplib. The main functions then begins with setting the size and title for the GUI window. Next there is a label created which shows the user the two options they have with the GUI, direct download or to schedule a download. Next up there is a calander which allows the user to choose a date and time for when they want a download to be compleeted. The function ends with getting the files from the server and logging in using annonymous credentials.
+The Main GUI was created by Thomas H2. The overall aim of the GUI is to make using the FTP server possible for people who may have never used a CLI in their life. The GUI code begins with multiple imports from tkinter, scheduler, datetime and ftplib. The main functions then begins with setting the size and title for the GUI window. Next there is a label created which shows the user the two options they have with the GUI, direct download or to schedule a download on a specific date chosen from the calendar. Next up there is a calander which allows the user to choose a date and time for when they want a download to be completed. The function ends with getting the files from the server and logging in using credentials specified in the ftp_server.py.
+
+![](gui_image.png)
 
 # <u>Report</u>
 The report was written by Ben S1. This was done once all the coding was complete and was completed using the commentary on each file along with what was said at meetings.
@@ -59,6 +64,6 @@ One of the problems our team encountered was trying to work this project in with
 # <u>Conclusion</u>
 Overall we believe the solution we have delivered is a simple, yet effective and delivers on the project deliverables. The FTP server has security features and the GUI means anyone who isn't familiar with CLI can access it. 
 
-Git Hub LinK:
+GitHub Link:
 
 https://github.com/TJH33/MedicalFTP.git
