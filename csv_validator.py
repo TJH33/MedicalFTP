@@ -41,13 +41,13 @@ def validate_csv(file):
 
 
 
-        if not validate_header(get_header(file)):
+        '''if not validate_header(get_header(file)):
             # If invalid header, patch it on the fly
             file[0] = ["batch_id", "timestamp", "reading1", "reading2", "reading3", "reading4", "reading5", "reading6",
                        "reading7", "reading8", "reading9", "reading10"]
             test_criteria.append('Invalid header')
             csv_file.writelines(file)
-        batch_ids = []
+        batch_ids = []'''
 
 
 def validate_float(num):
